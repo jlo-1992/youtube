@@ -1,6 +1,10 @@
+<!-- eslint-disable vue/no-multiple-template-root -->
 <template>
-
-  <Menu />
-  <Header />
-  <slot />
+  <HeaderSection/>
+  <div class="flex mt-5">
+    <MenuBar />
+    <slot />
+  </div>
 </template>
+
+
