@@ -1,44 +1,48 @@
-<script setup lang="ts">  </script>
+<script setup lang="ts"></script>
 
-<template> 
-   <div id="appbar" class="flex flex-row justify-between items-center cursor-pointer h-15 px-5">
-  
+<template>
+  <div id="appbar" class="flex h-15 cursor-pointer flex-row items-center justify-between px-5">
     <div id="leftside" class="flex items-center">
       <Icon name="mdi-menu" size="24" />
-      <button id="logo" to="/" >
-        <img src="../assets/images/youtubelogo.png" alt="youtubelogo" class="h-8 ml-5">
+      <button id="logo" type="button" to="/">
+        <img src="/images/youtubelogo.png" alt="youtubelogo" class="ml-5 h-8" />
       </button>
-    </div> 
+    </div>
     <div id="center" class="flex items-center">
-      <div id="searchbar" class="mr-5" >
-        <input type="text" class="border border-gray-400 rounded-full rounded-r-md p-1 pl-5 mr-2 w-100 h-10" placeholder="搜尋">
-      
-        <button class="bg-gray-100 rounded-full rounded-l-md px-2 w-15 h-10 border border-gray-400 -ml-2 cursor-pointer">
-          <Icon name="mdi-search" size="30" class="mt-1 " />
+      <div id="searchbar" class="mr-5">
+        <input
+          type="text"
+          class="mr-2 h-10 w-100 rounded-full rounded-r-md border border-gray-400 p-1 pl-5"
+          placeholder="搜尋"
+        />
+
+        <button
+          type="button"
+          class="-ml-2 h-10 w-15 cursor-pointer rounded-full rounded-l-md border border-gray-400 bg-gray-100 px-2"
+        >
+          <Icon name="mdi-search" size="30" class="mt-1" />
         </button>
       </div>
-      <button id="voiceSearch" class="bg-gray-100 rounded-full px-2 cursor-pointer">
+      <button id="voiceSearch" type="button" class="cursor-pointer rounded-full bg-gray-100 px-2">
         <Icon class="mt-2" name="mdi-microphone" size="24" />
       </button>
-    </div>  
-    <div id="rightside" class="w-45 flex justify-between items-center">
+    </div>
+    <div id="rightside" class="flex w-45 items-center justify-between">
       <div>
-        <button class="bg-gray-100 w-20 rounded-full h-10">＋建立</button>
+        <button type="button" class="h-10 w-20 rounded-full bg-gray-100">＋建立</button>
       </div>
       <div>
-        <button class="mx-3">
+        <button type="button" class="mx-3">
           <Icon name="mdi-bell-outline" size="24" />
         </button>
       </div>
       <div>
-        <button>
-          <img src="../assets/images/quokka.jpg" class="rounded-full w-1/2" alt="profilephoto">
+        <button type="button">
+          <img src="/images/quokka.jpg" class="w-1/2 rounded-full" alt="profilephoto" />
         </button>
       </div>
     </div>
   </div>
-
-
 </template>
 
-<style scoped> </style> 
+<style scoped></style>
