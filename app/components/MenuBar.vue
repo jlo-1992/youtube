@@ -3,17 +3,22 @@ const btnDetails = [
   {
     to: "/",
     icon: "mdi-home",
-    name: "哈利波特",
+    name: "所有人物",
   },
   {
     to: "/shorts",
     icon: "mdi-compass",
+    name: "短影音",
+  },
+  {
+    to: "/movies",
+    icon: "mdi-bell-outline",
     name: "電影",
   },
   {
     to: "/subscibe",
     icon: "mdi-bell-outline",
-    name: "書本",
+    name: "訂閱內容",
   },
 ];
 </script>
