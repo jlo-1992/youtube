@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import type { CharactersInfo } from '~/types/character';
+import type { tag } from '~/types/index';
 
 const { data } = await useFetch<CharactersInfo[]>('https://hp-api.onrender.com/api/characters');
 
 const filteredCards = ref<CharactersInfo[]>([]);
 const selectedTag = ref<'all' | 'Gryffindor' | 'Ravenclaw' | 'Hufflepuff' | 'Slytherin'>('all');
-// const changeDisplay = () => {
-//   if (selectedTag.value) {
-//     filteredCards.value = data.value.filter((item) => item.house === selectedTag.value);
-//   }
-// };
 
-const tags = [
+const tags: tag[] = [
   {
     tag: 'all',
     tagName: '所有人物',
@@ -33,6 +29,14 @@ const tags = [
     tagName: '史萊哲林',
   },
 ];
+
+watch(selectedTag, (newValue) => {
+  if (selectedTag.value === 'all') {
+    filteredCards.value = data.value;
+  } else {
+    filteredCards.value = data.value?.filter((newValue) => newValue.house === selectedTag.value);
+  }
+});
 </script>
 
 <template>

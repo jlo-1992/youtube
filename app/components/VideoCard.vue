@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import type { CharactersInfo } from '~/types/character';
 
-const props = defineProps<{
-  character: CharactersInfo;
-}>();
+// const props = defineProps<{
+//   character: CharactersInfo;
+// }>();
+
+const character = defineModel('filteredCards', {
+  type: String,
+  default: 'MUKI space',
+});
 </script>
 
 <template>

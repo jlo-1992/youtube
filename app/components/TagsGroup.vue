@@ -1,11 +1,15 @@
 <script setup lang="ts">
-// import type { tag } from '~/types/index';
-import type { House } from '/types/character.ts';
+import type { House } from '~/types/character';
 
 const props = defineProps<{
   tag: House | 'all';
   tagName: string;
 }>();
+
+const selectedTag = defineModel<House | 'all'>({});
+const selectTag = () => {
+  selectedTag.value = props.tag;
+};
 </script>
 
 <template>
@@ -15,8 +19,6 @@ const props = defineProps<{
     <button type="button">
       {{ props.tagName }}
     </button>
-    <!-- <input :id="data.tag" type="radio" name="harrypotter" class="hidden" />
-    <label class="cursor-pointer" :for="data.tag">{{ data.tagName }} </label> -->
   </div>
 </template>
 
