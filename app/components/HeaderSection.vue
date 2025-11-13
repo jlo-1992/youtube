@@ -11,7 +11,7 @@
       </NuxtLink>
     </div>
     <div id="center" class="flex items-center">
-      <div id="searchbar" class="mr-5">
+      <div id="searchbar" class="mr-5 flex">
         <input
           type="text"
           class="mr-2 h-10 w-100 rounded-full rounded-r-md border border-gray-400 p-1 pl-5"
@@ -19,7 +19,7 @@
         />
         <button
           type="button"
-          class="mt-2 -ml-2 h-10 w-15 cursor-pointer rounded-full rounded-l-md border border-gray-400 bg-gray-100 px-2"
+          class="-ml-2 h-10 w-15 cursor-pointer rounded-full rounded-l-md border border-gray-400 bg-gray-100 px-2"
         >
           <Icon name="mdi-search" size="30" class="mt-1" />
         </button>

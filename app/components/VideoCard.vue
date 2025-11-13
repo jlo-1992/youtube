@@ -1,10 +1,8 @@
 <script setup lang="ts">
+import type { CharactersInfo } from '~/types/character';
+
 const props = defineProps<{
-  name: string;
-  house: string;
-  ancestry: string;
-  wand: string;
-  image: string;
+  character: CharactersInfo;
 }>();
 </script>
 
