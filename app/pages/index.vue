@@ -12,10 +12,8 @@ const { data }: charactersInfo = await useFetch("https://hp-api.onrender.com/api
 const filteredCards = ref([]);
 const selectedTag = ref("all");
 const changeDisplay = () => {
-  if (selectedTag.value === "Gryffindor") {
-    filteredCards.value = data.filter((item) =>
-      item.house === selectedTag.value;
-    );
+  if (selectedTag.value) {
+    filteredCards.value = data.filter((item) => item.house === selectedTag.value);
   }
 };
 
