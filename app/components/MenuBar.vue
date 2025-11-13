@@ -1,25 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const btnDetails = [
+  {
+    to: "/",
+    icon: "mdi-home",
+    name: "哈利波特",
+  },
+  {
+    to: "/shorts",
+    icon: "mdi-compass",
+    name: "電影",
+  },
+  {
+    to: "/subscibe",
+    icon: "mdi-bell-outline",
+    name: "書本",
+  },
+];
+</script>
 
 <template>
-  <div id="menu" class="flex w-75 flex-col gap-4 p-5">
-    <div>
-      <button type="button" to="home" width="100%">
-        <Icon name="mdi-home" size="24" class="mr-5" />
-        哈利波特
-      </button>
-    </div>
-    <div>
-      <button type="button" to="home">
-        <Icon name="mdi-compass" size="24" class="mr-5" />
-        電影
-      </button>
-    </div>
-    <div>
-      <button type="button" to="home">
-        <Icon name="mdi-bell-outline" size="24" class="mr-5" />
-        書本
-      </button>
-    </div>
+  <div class="flex w-75 flex-col gap-4 p-5">
+    <MenuBtn v-for="btn in btnDetails" :key="btn.name" :to-page="btn.to" :icon-name="btn.icon" :btn-name="btn.name" />
   </div>
 </template>
 
