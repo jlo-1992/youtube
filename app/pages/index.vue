@@ -1,4 +1,4 @@
-<script setups lang="ts">
+<script setup lang="ts">
 const { data } = await useFetch("https://hp-api.onrender.com/api/characters");
 // console.log(data);
 </script>
