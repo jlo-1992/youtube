@@ -1,27 +1,28 @@
 <script setup lang="ts">
-import type { CharactersInfo } from '~/types/character';
+import type { CharactersInfo } from '~/types/character.ts';
 
-const props = defineProps<{
-  character: CharactersInfo;
-}>();
+const props = withDefaults(defineProps<{ person: CharactersInfo }>(), {
+  image: '/images/quokka.jpg',
+});
 </script>
 
 <template>
   <div>
-    <div class="w-65">
-      <img :src="props.image" alt="charactorImage" class="h-60 w-full rounded-xl object-cover object-center" />
-      <div class="mt-3 grid grid-flow-col">
+    <div class="shadow- w-70 rounded-lg border-5 border-amber-900 bg-amber-800 p-2 shadow-black">
+      <h1 class="mb-3 rounded-md text-center text-2xl font-bold text-black shadow-xl">{{ props.person.name }}</h1>
+      <img
+        :src="props.person.image"
+        alt="charactorImage"
+        class="h-90 w-full rounded-xl border-8 object-cover object-center"
+      />
+      <div class="mt-3 flex justify-between rounded-md border-2 bg-white p-3 opacity-80">
         <div>
-          <img :src="props.image" class="m-auto w-1/3 rounded-full" alt="channellogo" />
+          <h3 class="font-bold text-black">{{ props.person.house }}</h3>
+          <h4 class="font-bold text-black">{{ props.person.ancestry }} · {{ props.person.yearOfBirth }}</h4>
         </div>
         <div>
-          <h1 class="font-bold">{{ props.name }}</h1>
-          <h3 class="text-gray-500">{{ props.house }}</h3>
-          <h4 class="text-gray-500">{{ props.ancestry }} · {{ props.wand }}</h4>
-        </div>
-        <div>
-          <button type="button">
-            <Icon name="meteor-icons:ellipsis" size="20" />
+          <button type="button" class="cursor-pointer">
+            <Icon name="meteor-icons:heart" size="20" />
           </button>
         </div>
       </div>

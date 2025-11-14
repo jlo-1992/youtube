@@ -1,2 +1,2 @@
-1. eslint 不能沒有結尾標籤的檢查
-2. Type '\_AsyncData<unknown, FetchError <any> | undefined>' is missing the following properties from type 'charactersInfo': name, house, ancestry, wand, image
+1. 無法注入withDefaults
+2. Argument of type '{ key: string; name: string; house: House; ancestry: string; wand: string; image: string; }' is not assignable to parameter of type '{ readonly character: CharactersInfo; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & Record<...>'.

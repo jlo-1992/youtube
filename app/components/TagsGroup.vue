@@ -1,22 +1,19 @@
 <script setup lang="ts">
-// import type { tag } from '~/types/index';
-import type { House } from '/types/character.ts';
+import type { Tag } from '~/types/index';
 
-const props = defineProps<{
-  tag: House | 'all';
-  tagName: string;
-}>();
+const selectedTag = defineModel<string>();
+const props = defineProps<{ tag: Tag }>();
+
+const setTag = () => {
+  selectedTag.value = props.tag.tag;
+};
 </script>
 
 <template>
-  <div
-    class="mx-1 mb-7 inline-block cursor-pointer rounded-md bg-gray-100 px-3 py-1 font-bold hover:bg-black hover:text-white"
-  >
-    <button type="button">
-      {{ props.tagName }}
+  <div class="mx-1 mb-7 inline-block rounded-md bg-gray-100 px-3 py-1 font-bold hover:bg-black hover:text-white">
+    <button type="button" class="cursor-pointer" @click="setTag()">
+      {{ props.tag.tagName }}
     </button>
-    <!-- <input :id="data.tag" type="radio" name="harrypotter" class="hidden" />
-    <label class="cursor-pointer" :for="data.tag">{{ data.tagName }} </label> -->
   </div>
 </template>
 

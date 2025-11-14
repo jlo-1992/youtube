@@ -1,15 +1,22 @@
 <script setup lang="ts">
-import type { CharactersInfo } from '~/types/character';
+import type { CharactersInfo, House } from '~/types/character';
 
 const { data } = await useFetch<CharactersInfo[]>('https://hp-api.onrender.com/api/characters');
 
 const filteredCards = ref<CharactersInfo[]>([]);
-const selectedTag = ref<'all' | 'Gryffindor' | 'Ravenclaw' | 'Hufflepuff' | 'Slytherin'>('all');
-// const changeDisplay = () => {
-//   if (selectedTag.value) {
-//     filteredCards.value = data.value.filter((item) => item.house === selectedTag.value);
-//   }
-// };
+const selectedTag = ref<House | 'all'>('all');
+
+watchEffect(() => {
+  filteredCards.value = data.value;
+});
+
+watch(selectedTag, (newValue) => {
+  if (selectedTag.value === 'all') {
+    filteredCards.value = data.value;
+  } else {
+    filteredCards.value = data.value.filter((newValue) => newValue.house === selectedTag.value);
+  }
+});
 
 const tags = [
   {
@@ -37,17 +44,9 @@ const tags = [
 
 <template>
   <div>
-    <TagsGroup v-for="item in tags" :key="item.tag" v-model="selectedTag" :tag-name="item.tagName" :tag="item.tag" />
-    <div class="grid grid-cols-4 gap-4">
-      <VideoCard
-        v-for="item in filteredCards"
-        :key="item.id"
-        :name="item.name"
-        :house="item.house"
-        :ancestry="item.ancestry"
-        :wand="item.wand.core"
-        :image="item.image || '/images/quokka.jpg'"
-      />
+    <TagsGroup v-for="item in tags" :key="item.tag" v-model="selectedTag" :tag="item" />
+    <div class="grid grid-cols-7 gap-4">
+      <VideoCard v-for="item in filteredCards" :key="item.id" :person="item" />
     </div>
   </div>
 </template>
