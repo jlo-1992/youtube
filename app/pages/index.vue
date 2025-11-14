@@ -12,9 +12,9 @@ watchEffect(() => {
 
 watch(selectedTag, (newValue) => {
   if (selectedTag.value === 'all') {
-    filteredCards.value = data.value;
+    filteredCards.value = data.value ?? [];
   } else {
-    filteredCards.value = data.value.filter((newValue) => newValue.house === selectedTag.value);
+    filteredCards.value = data.value?.filter((item) => item.house === newValue) || [];
   }
 });
 
