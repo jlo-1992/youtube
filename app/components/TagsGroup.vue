@@ -7,10 +7,17 @@ const props = defineProps<{ tag: Tag }>();
 const setTag = () => {
   selectedTag.value = props.tag.tag;
 };
+
+const isSelected = computed(() => {
+  return selectedTag.value === props.tag.tag;
+});
 </script>
 
 <template>
-  <div class="mx-1 mb-7 inline-block rounded-md bg-gray-100 px-3 py-1 font-bold hover:bg-black hover:text-white">
+  <div
+    class="mx-1 mb-7 inline-block rounded-md px-3 py-1 font-bold"
+    :class="['bg-gray-100 hover:bg-black hover:text-white', isSelected ? 'bg-black text-white' : '']"
+  >
     <button type="button" class="cursor-pointer" @click="setTag()">
       {{ props.tag.tagName }}
     </button>
