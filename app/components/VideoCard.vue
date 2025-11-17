@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import type { CharactersInfo } from '~/types/character.ts';
+import { useFaveCardStore } from '~/stores/faveCardStore';
+
+const faveCardStore = useFaveCardStore();
 
 const props = defineProps<{ person: CharactersInfo }>();
-
-const isFavorite = ref<boolean>(false);
-
-const toggleFavorite = () => {
-  isFavorite.value = !isFavorite.value;
-};
 </script>
 
 <template>
@@ -26,9 +23,7 @@ const toggleFavorite = () => {
           <h4 class="font-bold text-black">{{ props.person.ancestry }} · {{ props.person.yearOfBirth }}</h4>
         </div>
         <div>
-          <button type="button" class="cursor-pointer">
-            <Icon :name="!isFavorite ? 'mdi-heart-outline' : 'mdi-heart'" size="20" @click="toggleFavorite" />
-          </button>
+          <FaveBtn :id="props.person.id" />
         </div>
       </div>
     </div>
