@@ -1,2 +1,4 @@
-1. eslint 不能沒有結尾標籤的檢查
-2. Type '\_AsyncData<unknown, FetchError <any> | undefined>' is missing the following properties from type 'charactersInfo': name, house, ancestry, wand, image
+1. 無法注入withDefaults
+2. 無法存localStorage
+3. 搜尋功能
+4. 顯示最愛功能

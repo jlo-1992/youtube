@@ -1,23 +1,25 @@
 <script setup lang="ts">
-import type { House } from '~/types/character';
+import type { Tag } from '~/types/index';
 
-const props = defineProps<{
-  tag: House | 'all';
-  tagName: string;
-}>();
+const selectedTag = defineModel<string>();
+const props = defineProps<{ tag: Tag }>();
 
-const selectedTag = defineModel<House | 'all'>({});
-const selectTag = () => {
-  selectedTag.value = props.tag;
+const setTag = () => {
+  selectedTag.value = props.tag.tag;
 };
+
+const isSelected = computed(() => {
+  return selectedTag.value === props.tag.tag;
+});
 </script>
 
 <template>
   <div
-    class="mx-1 mb-7 inline-block cursor-pointer rounded-md bg-gray-100 px-3 py-1 font-bold hover:bg-black hover:text-white"
+    class="mx-1 mb-7 inline-block rounded-md px-3 py-1 font-bold hover:bg-black hover:text-white"
+    :class="{ 'bg-black text-white': isSelected, 'bg-gray-100': !isSelected }"
   >
-    <button type="button">
-      {{ props.tagName }}
+    <button type="button" class="cursor-pointer" @click="setTag">
+      {{ props.tag.tagName }}
     </button>
   </div>
 </template>

@@ -1,24 +1,24 @@
 <script setup lang="ts">
 const btnDetails = [
   {
-    to: "/",
-    icon: "mdi-home",
-    name: "所有人物",
+    to: '/',
+    icon: 'mdi-home',
+    name: '所有人物',
   },
   {
-    to: "/shorts",
-    icon: "mdi-compass",
-    name: "短影音",
+    to: '/shorts',
+    icon: 'mdi-compass',
+    name: '短影音',
   },
   {
-    to: "/movies",
-    icon: "mdi-bell-outline",
-    name: "電影",
+    to: '/movies',
+    icon: 'mdi-bell-outline',
+    name: '電影',
   },
   {
-    to: "/subscibe",
-    icon: "mdi-bell-outline",
-    name: "訂閱內容",
+    to: '/logIn',
+    icon: 'mdi-bell-outline',
+    name: '登入頁面',
   },
 ];
 </script>
