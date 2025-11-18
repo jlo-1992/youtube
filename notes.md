@@ -1,3 +1,4 @@
 1. 無法注入withDefaults
-2. tag 變色
-3. 愛心存到 pinia 跟 local
+2. 無法存localStorage
+3. 搜尋功能
+4. 顯示最愛功能

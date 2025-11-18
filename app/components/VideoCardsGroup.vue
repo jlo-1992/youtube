@@ -7,7 +7,7 @@ const filteredCards = ref<CharactersInfo[]>([]);
 const selectedTag = ref<House | 'all'>('all');
 
 watchEffect(() => {
-  filteredCards.value = data.value;
+  filteredCards.value = data.value || [];
 });
 
 watch(selectedTag, (newValue) => {
@@ -51,4 +51,4 @@ const tags = [
   </div>
 </template>
 
-<style></style>
+<style scoped></style>

@@ -15,8 +15,8 @@ const isSelected = computed(() => {
 
 <template>
   <div
-    class="mx-1 mb-7 inline-block rounded-md px-3 py-1 font-bold"
-    :class="['bg-gray-100 hover:bg-black hover:text-white', isSelected ? 'bg-black text-white' : '']"
+    class="mx-1 mb-7 inline-block rounded-md px-3 py-1 font-bold hover:bg-black hover:text-white"
+    :class="isSelected ? 'bg-black text-white' : 'bg-gray-100'"
   >
     <button type="button" class="cursor-pointer" @click="setTag()">
       {{ props.tag.tagName }}

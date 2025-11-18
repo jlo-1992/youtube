@@ -21,7 +21,7 @@ const props = defineProps<BtnPropsType>();
     </span>
     <slot></slot>
   </button> -->
-  <button class="cursor-pointer rounded-md p-2" :type="props.type" :class="props.btnClass">
+  <button class="cursor-pointer rounded-md p-2" :class="props.btnClass">
     <span :class="props.iconClass" v-if="props.icon">
       <Icon :name="props.icon" :class="props.iconClass"></Icon>
     </span>

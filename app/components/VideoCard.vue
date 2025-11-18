@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import type { CharactersInfo } from '~/types/character.ts';
-import { useFaveCardStore } from '~/stores/faveCardStore';
-
-const faveCardStore = useFaveCardStore();
 
 const props = defineProps<{ person: CharactersInfo }>();
 </script>
