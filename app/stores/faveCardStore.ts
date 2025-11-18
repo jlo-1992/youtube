@@ -16,10 +16,15 @@ export const useFaveCardStore = defineStore(
       }
     };
 
+    const isFave = (cardId: string) => {
+      return faveList.value.includes(cardId);
+    };
+
     return {
       faveList,
       addToList,
       removeFromList,
+      isFave,
     };
   },
   {

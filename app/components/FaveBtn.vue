@@ -6,7 +6,7 @@ const faveCardStore = useFaveCardStore();
 const props = defineProps<{ id: string }>();
 
 const isFave = computed(() => {
-  return faveCardStore.faveList.includes(props.id);
+  return faveCardStore.isFave(props.id);
 });
 
 const toggleFave = () => {

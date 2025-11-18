@@ -5,14 +5,12 @@
     <div id="leftside" class="flex items-center">
       <HeaderBtn to-page="/" icon-name="mdi-menu" class="ml-2" />
       <NuxtLink to="/">
-        <button id="logo" type="button" class="cursor-pointer">
-          <img src="/images/youtubelogo.png" alt="youtubelogo" class="ml-5 h-8" />
-        </button>
+        <img src="/images/youtubelogo.png" alt="youtubelogo" class="ml-5 h-8" />
       </NuxtLink>
     </div>
     <div id="center" class="flex items-center">
       <SearchBar />
-      <button id="voiceSearch" type="button" class="cursor-pointer rounded-full bg-gray-100 px-2">
+      <button type="button" class="cursor-pointer rounded-full bg-gray-100 px-2">
         <Icon class="mt-2" name="mdi-microphone" size="24" />
       </button>
     </div>

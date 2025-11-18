@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { CharactersInfo, House } from '~/types/character';
+import type { Tag } from '~/types/index';
 
 const { data } = await useFetch<CharactersInfo[]>('https://hp-api.onrender.com/api/characters');
 
@@ -14,11 +15,11 @@ watch(selectedTag, (newValue) => {
   if (selectedTag.value === 'all') {
     filteredCards.value = data.value ?? [];
   } else {
-    filteredCards.value = data.value?.filter((item) => item.house === newValue) || [];
+    filteredCards.value = data.value?.filter((item) => item.house === newValue) ?? [];
   }
 });
 
-const tags = [
+const tags: Tag[] = [
   {
     tag: 'all',
     tagName: '所有人物',
@@ -50,5 +51,3 @@ const tags = [
     </div>
   </div>
 </template>
-
-<style scoped></style>

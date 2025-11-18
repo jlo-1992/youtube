@@ -8,10 +8,8 @@ const props = defineProps<{
 
 <template>
   <NuxtLink :to="props.toPage">
-    <button type="button" class="cursor-pointer">
-      <Icon :name="props.iconName" size="24" class="mr-5" />
-      {{ props.btnName }}
-    </button>
+    <Icon :name="props.iconName" size="24" class="mr-5" />
+    {{ props.btnName }}
   </NuxtLink>
 </template>
 
