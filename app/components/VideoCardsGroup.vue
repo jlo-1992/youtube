@@ -1,14 +1,30 @@
 <script setup lang="ts">
 import type { CharactersInfo, House } from '~/types/character';
 import type { Tag } from '~/types/index';
+import { useSearchStore } from '~/stores/searchStore';
 
 const { data } = await useFetch<CharactersInfo[]>('https://hp-api.onrender.com/api/characters');
 
 const filteredCards = ref<CharactersInfo[]>([]);
 const selectedTag = ref<House | 'all'>('all');
 
+const searchStore = useSearchStore();
+
+const { searchTarget } = storeToRefs(searchStore);
+
 watchEffect(() => {
   filteredCards.value = data.value || [];
+});
+
+watch(searchTarget, (newValue: string) => {
+  const target = newValue.toLowerCase();
+
+  filteredCards.value =
+    data.value?.filter((item) => {
+      return item.name.toLowerCase() === target;
+    }) ?? [];
+
+  searchStore.removeSearchTarget();
 });
 
 watch(selectedTag, (newValue) => {
