@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-multiple-template-root -->
 <template>
-  <HeaderSection />
+  <HeaderSection />]
   <div class="mt-5 flex">
     <MenuBar />
     <slot />
