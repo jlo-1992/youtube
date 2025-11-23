@@ -23,5 +23,3 @@ const toggleFave = () => {
     <Icon :name="isFave ? 'mdi-heart' : 'mdi-heart-outline'" size="20" />
   </button>
 </template>
-
-<style scoped></style>

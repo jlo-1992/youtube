@@ -4,7 +4,7 @@ import type { FormSubmitEvent } from '@nuxt/ui';
 
 const schema = z.object({
   email: z.email('請輸入正確的 email 格式'),
-  password: z.string('密碼為必填'),
+  password: z.string().nonempty('密碼為必填'),
 });
 
 type Schema = z.output<typeof schema>;
@@ -14,18 +14,27 @@ const form = reactive<Partial<Schema>>({
   password: '',
 });
 
+const { fetch } = useUserSession();
 const toast = useToast();
+
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  toast.add({ title: 'Success', description: '登入成功.', color: 'success' });
-  console.log(event.data);
-  // emit('login', form);
+  try {
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: event.data,
+    });
+
+    await fetch();
+
+    navigateTo('/faveCards');
+    toast.add({ title: 'Success', description: '登入成功', color: 'success' });
+    console.log(event.data);
+  } catch (error) {
+    console.log(error);
+    const defaultMessage = '帳號或密碼錯誤，請重新輸入。';
+    toast.add({ title: defaultMessage, description: '登入失敗', color: 'error' });
+  }
 }
-
-// const emit = defineEmits(['login']);
-
-// function handleLogin(form: { email: string; password: string }) {
-//   console.log(form);
-// }
 </script>
 
 <template>

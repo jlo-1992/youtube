@@ -18,15 +18,15 @@ const btns: Btn[] = [
     icon: 'mdi-home',
     name: '所有人物',
   },
+  // {
+  //   to: '/shorts',
+  //   icon: 'mdi-compass',
+  //   name: '短影音',
+  // },
   {
-    to: '/shorts',
-    icon: 'mdi-compass',
-    name: '短影音',
-  },
-  {
-    to: '/movies',
-    icon: 'icomoon-free:video-camera',
-    name: '電影',
+    to: '/faveCards',
+    icon: 'mdi-heart',
+    name: '我的最愛',
   },
 ];
 </script>

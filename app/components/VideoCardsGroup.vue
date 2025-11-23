@@ -46,7 +46,7 @@ const tags: Tag[] = [
 <template>
   <div>
     <TagsGroup v-for="item in tags" :key="item.tag" v-model="selectedTag" :tag="item" />
-    <div class="grid grid-cols-7 gap-4">
+    <div class="grid grid-cols-5 gap-4">
       <VideoCard v-for="item in filteredCards" :key="item.id" :person="item" />
     </div>
   </div>
